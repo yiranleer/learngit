@@ -11,7 +11,6 @@ require_once('./RedisClass.php');
 
 $redis = new \learngit\RedisClass();
 
-var_dump($redis);
 $key = 'yiranleer_test';
 $value = 'the first redis test!';
 $redis->setStr($key,$value);
