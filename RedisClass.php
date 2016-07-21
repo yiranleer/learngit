@@ -19,11 +19,11 @@ class RedisClass {
      */
     public function __construct($config=array()){
 
-        //if($config['host'] == '')    $config['host'] = '127.0.0.1';
-        //if($config['port'] == '')    $config['port'] = '6379';
-        //if($config['timeout'] == '') $config['timeout'] = '5000';
+        if($config['host'] == '')    $config['host'] = '127.0.0.1';
+        if($config['port'] == '')    $config['port'] = '6379';
+        if($config['timeout'] == '') $config['timeout'] = '5000';
         $this->redis = new \Redis();
-        $this->redis->connect('127.0.0.1','6379','5000' );
+        $this->redis->connect($config['host'],$config['port'],$config['timeout'] );
 
         if(!empty($config['pwd'])){
             $this->redis->auth($config['pwd']);
